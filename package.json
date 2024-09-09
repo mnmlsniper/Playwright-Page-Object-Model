@@ -1,0 +1,17 @@
+{
+  "name": "pom",
+  "version": "0.0.1",
+  "scripts": {
+    "debug" :"npx playwright test --ui",
+    "test": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "mnmlsniper",
+  "license": "ISC",
+  "description": "Playwright-Page-Object-Model",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.46.1",
+    "@types/node": "^22.5.0"
+  }
+}
