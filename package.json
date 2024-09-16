@@ -2,7 +2,9 @@
   "name": "pom",
   "version": "0.0.1",
   "scripts": {
-    "debug" :"npx playwright test --ui",
+    "allureGenerate": "allure generate --clean",
+    "allureOpen": "allure open",
+    "debug": "npx playwright test --ui",
     "test": "npx playwright test"
   },
   "keywords": [],
@@ -12,6 +14,8 @@
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.46.1",
-    "@types/node": "^22.5.0"
+    "@types/node": "^22.5.0",
+    "allure-playwright": "^3.0.0",
+    "os": "^0.1.2"
   }
 }

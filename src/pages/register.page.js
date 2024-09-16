@@ -1,3 +1,4 @@
+import { allure } from "allure-playwright";
 import {BasePage} from './base.page';
 
 export class RegisterPage extends BasePage {
@@ -10,6 +11,7 @@ constructor (page) {
 }
 // todo нейминг
 async register (userName = '', userEmail = '', userPassword = '') {
+    await allure.step("Ввести имя пользователя, емейл и пароль", async () => {
     await this.usernameField.click();
     await this.usernameField.fill(userName);
     await this.emailField.click();
@@ -17,11 +19,15 @@ async register (userName = '', userEmail = '', userPassword = '') {
     await this.passwordField.click();
     await this.passwordField.fill(userPassword);
     await this.signupButton.click();
+    });
 }
 
 async enterUsername (userName) {
+    await allure.step("Ввести имя пользователя", async () => {
+
     await this.usernameField.click();
     await this.usernameField.fill(userName);
+    });
 }
 
 async enterEmail (userEmail) {
