@@ -5,7 +5,8 @@
     "allureGenerate": "allure generate --clean",
     "allureOpen": "allure open",
     "debug": "npx playwright test --ui",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "testEnv": "export NODE_ENV=auto-test npx playwright test"
   },
   "keywords": [],
   "author": "mnmlsniper",
@@ -17,5 +18,8 @@
     "@types/node": "^22.5.0",
     "allure-playwright": "^3.0.0",
     "os": "^0.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
