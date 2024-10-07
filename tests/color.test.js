@@ -24,7 +24,7 @@ async function checkColor(el, cssProps, rgbColors){
 }
 
 test.describe('CSS',() => {
-    test.only('Проверить цвет логотипа', async ({ page }) => {
+    test('Проверить цвет логотипа', async ({ page }) => {
         const mainPage = new MainPage(page);
         await mainPage.open(url);
         let hexColor = "#5cb85c";
