@@ -1,0 +1,9 @@
+{
+    "customer" : {
+        "info" :{
+            "name": "Belka",
+            "age" : 3
+        },
+        "role": "admin"
+    }
+}

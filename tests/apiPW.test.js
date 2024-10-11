@@ -1,24 +1,24 @@
 import { test, expect } from "@playwright/test";
 
-test.describe.only("API challenge", () => {
+test.describe("API challenge", () => {
   let URL = "https://apichallenges.herokuapp.com/";
   let token;
 
-  test.beforeEach(async ({ request }) => {
+  test.beforeAll(async ({ request }) => {
     // Запросить ключ авторизации
     let response = await request.post(`${URL}challenger`);
     let headers = await response.headers();
     // Передаем токен в тест
     token = headers["x-challenger"];
     // Пример ассерта
+    console.log('Это токен'+token);
+
     expect(headers).toEqual(
       expect.objectContaining({ "x-challenger": expect.any(String) }),
     );
   });
 
-  test.skip("Получить список заданий get /challenges @API", async ({
-    request,
-  }) => {
+  test("Получить список заданий get /challenges", async ({ request }) => {
     let response = await request.get(`${URL}challenges`, {
       headers: {
         "x-challenger": token,
@@ -26,12 +26,12 @@ test.describe.only("API challenge", () => {
     });
     let body = await response.json();
     let headers = await response.headers();
-    console.log(body.challenges.length);
     expect(response.status()).toBe(200);
     expect(headers).toEqual(expect.objectContaining({ "x-challenger": token }));
+    console.log(token);
     expect(body.challenges.length).toBe(59);
   });
-  test("Отредактировать задание PUT /todos/{id} @API", async ({ request }) => {
+  test("Отредактировать задание PUT /todos/{id} ", async ({ request }) => {
     const todo = {
       doneStatus: true,
       description: "реклама",
@@ -44,6 +44,7 @@ test.describe.only("API challenge", () => {
     });
     let body = await response.json();
     let headers = await response.headers();
+    console.log(token);
     expect(response.status()).toBe(400);
   });
 });
