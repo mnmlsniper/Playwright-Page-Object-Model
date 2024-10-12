@@ -5,6 +5,6 @@ import {test} from '../src1/custom-fixtures';
 let newUser; */
 test('BooksPage test', async ({appMe}) => {
     await appMe.loginPage.visit();
-    await appMe.loginPage.loginForm.loginWithCredentials('dlove@yandex.ru', 'Cyfqgth12')
+    await appMe.loginPage.loginForm.loginWithCredentials('dlove@yandex.ru', 'Password12')
 });
 
