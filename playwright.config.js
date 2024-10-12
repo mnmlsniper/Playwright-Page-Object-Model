@@ -1,8 +1,22 @@
+import { config } from "dotenv";
 import * as os from "os";
-
-// @ts-check
 const { defineConfig, devices } = require("@playwright/test");
 
+
+// @ts-check
+
+if (process.env.ENVIRONMENT) {
+  config ({
+    path: `.env.${process.env.ENVIRONMENT}`,
+    override:true,
+  }
+  )
+}
+else {
+  console.log(process.env.ENVIRONMENT)
+
+config ();
+}
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -21,7 +35,7 @@ module.exports = defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ["line"],

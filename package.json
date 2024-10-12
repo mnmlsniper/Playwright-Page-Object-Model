@@ -4,10 +4,10 @@
   "scripts": {
     "allureGenerate": "allure generate --clean",
     "allureOpen": "allure open",
-    "api": "npx playwright test --grep @API",
+    "api": "export NODE_ENV=dev && export ENVIRONMENT=staging && npx playwright test --grep @API",
+    "api1": "export ENVIRONMENT=staging && npx playwright test --grep @API",
     "debug": "npx playwright test --ui",
-    "test": "npx playwright test",
-    "testEnv": "export NODE_ENV=auto-test npx playwright test"
+    "test": "npx playwright test"
   },
   "keywords": [],
   "author": "mnmlsniper",
@@ -17,10 +17,10 @@
     "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.46.1",
     "@types/node": "^22.5.0",
+    "axios": "^1.7.7",
     "allure-playwright": "^3.0.0",
+    "config": "^3.3.12",
+    "dotenv": "^16.4.5",
     "os": "^0.1.2"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.5"
   }
 }
