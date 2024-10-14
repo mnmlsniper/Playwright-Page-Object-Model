@@ -68,4 +68,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         env:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: your-branch  # default: gh-pages  
+          publish_branch:  with
+          publish_dir: allure-history  # default: gh-pages
+          
