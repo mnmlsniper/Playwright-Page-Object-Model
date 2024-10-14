@@ -21,8 +21,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-    # установим зависимоcти
-      - run: npm ci
+    # установим зависимоcти / npm ci
+      - run: npm i
     # устанавливаем PW
       - name: Install PW
         run: npx playwright install --with-deps
