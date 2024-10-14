@@ -1,0 +1,29 @@
+# Называем workflow
+name: pw test
+# Когда запускать тесты
+on:  
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+# Сама джобы
+jobs:
+  #название джобы
+  test:
+    timeout-minutes: 60
+    # задаем окружение
+    runs-on: ubuntu-latest
+    steps:
+    # делаем чекаут
+      - uses: actions/checkout@v4
+    # устанавливаем ноду
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+    # устанавливаем PW
+      - name: Install PW
+        run: npx playwright install --with-deps
+      - name: Run PW test
+        run: npx run test
+    
