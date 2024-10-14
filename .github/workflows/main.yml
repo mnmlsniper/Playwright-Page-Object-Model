@@ -27,5 +27,5 @@ jobs:
       - name: Install PW
         run: npx playwright install --with-deps
       - name: Run PW test
-        run: npm run test
+        run: npm run api
     
