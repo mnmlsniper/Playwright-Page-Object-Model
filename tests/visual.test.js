@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const url = 'https://realworld.qa.guru/#/';
 
-test.describe.only('Visual', () => {
+test.describe('Visual', () => {
   test('Basic screenshot page', async ({ page }) => {
     await page.goto(url);
     await expect(page).toHaveScreenshot();
